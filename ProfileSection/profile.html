@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<link href="css/bootsrap.css" rel="stylesheet" id="bootstrap-css">
+<link href="../assets/img/favicon.png" rel="icon">
+<link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<!------ Include the above in your HEAD tag ---------->
+<head>
+  <title>Profile - ViaLuggage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstap_min.css">
+</head>
+
+<body onload="checkdetails()">
+<hr>
+<div class="container bootstrap snippet">
+    <div class="row">
+  		<div class="col-sm-10"><h1> My Profile</h1></div>
+    	<div class="col-sm-2"><a href="../Landing.html" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="images/favicon.png"></a></div>
+    </div>
+    <div class="row">
+  		<div class="col-sm-3"><!--left col-->
+              
+
+      <div class="text-center">
+        <img src="images/user.png" class="avatar img-circle img-thumbnail" alt="avatar">
+      </div></hr><br>  
+        </div><!--/col-3-->
+    	<div class="col-sm-9">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab">Profile</a></li>
+              </ul>
+
+              
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">
+                <hr>
+                  <form class="form" action="##" method="post" id="registrationForm">
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="first_name"><h4>First name</h4></label>
+                              <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name" title="Enter First Name" disabled>
+                            </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                            <label for="last_name"><h4>Last name</h4></label>
+                              <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name" title="Enter Last Name" disabled>
+                          </div>
+                      </div>
+
+                      <div class="form-group">
+                          <div class="col-xs-6">
+                             <label for="mobile"><h4>Mobile</h4></label>
+                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Mobile Number" title="Enter Mobile Number" disabled>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Email</h4></label>
+                              <input type="text" class="form-control" name="email" id="email" placeholder="Email ID" title="Enter Your Email ID" disabled><br>
+                              
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="location"><h4>Residence City Name</h4></label>
+                              <input type="text" class="form-control" id="location" placeholder="City" title="Residence City Name" disabled>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                           <div class="col-xs-12">
+                                <br>
+                                <a onclick="insertdata()" class="btn btn-success">Save</a>
+                                <a href="../LoginPage/reset.html" class="btn btn-danger">Reset Password</a>
+                                <a onclick="updatedata()" class="btn btn-primary">Update Profile</a>
+                                <a onclick="displaydata()" class="btn btn-info">Display Details</a>
+                                <a onclick="enableclick()" class="btn btn-info">Edit Details</a>
+                                <a onclick="checksignup()" class="btn btn-info">Send Email Verification</a>
+                            </div>
+                      </div>
+              	</form>
+              
+              <hr>
+              
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script> 
+
+<script>
+
+var firebaseConfig = {
+    apiKey: "AIzaSyBsVyt5m0vDSwpfk2dseoKtKxjzowYWgaw",
+    authDomain: "vialuggage-org.firebaseapp.com",
+    databaseURL: "https://vialuggage-org-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "vialuggage-org",
+    storageBucket: "vialuggage-org.appspot.com",
+    messagingSenderId: "124797607223",
+    appId: "1:124797607223:web:b061a54a39c3c12dac0eb2"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src="../firebase/index.js"></script>
+<script>
+
+function enableclick(){
+
+  if(document.getElementById("first_name").disabled == true )
+  {
+    document.getElementById("first_name").disabled = false;
+  }
+  else{
+    document.getElementById("first_name").disabled = true;
+  }
+
+
+  if(document.getElementById("last_name").disabled == true )
+  {
+    document.getElementById("last_name").disabled = false;
+  }
+  else{
+    document.getElementById("last_name").disabled = true;
+  }
+
+
+  if(document.getElementById("mobile").disabled == true )
+  {
+    document.getElementById("mobile").disabled = false;
+  }
+  else{
+    document.getElementById("mobile").disabled = true;
+  }
+
+
+  if(document.getElementById("email").disabled == true )
+  {
+    document.getElementById("email").disabled = false;
+  }
+  else{
+    document.getElementById("email").disabled = true;
+  }
+
+
+  if(document.getElementById("location").disabled == true )
+  {
+    document.getElementById("location").disabled = false;
+  }
+  else{
+    document.getElementById("location").disabled = true;
+  }
+}
+</script>
+</body>

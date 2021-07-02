@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+	<link href="assets/img/favicon.png" rel="icon">
+	<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <style>
+	  #resetPassword{
+        text-decoration-color:bla;
+
+	  }
+  </style>
+	<head>
+  	<title>Forget Password - viaLuggage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <link rel="icon" href="C:\Users\Aaditya Prakash\Desktop\Programs\viaLuggage\images\web_logo.png" sizes="16x16" type="image/png">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div id="color" class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h1> <b> Welcome to viaLuggage </b> </h1>
+					<h3> </h3>
+					<h3> Forget Password ?</h3>
+					<img src="images/lock.png" sizes="50*50">
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<p>Please enter your email address below and we will send you information to recover your account.</p>	
+			      	<div class="d-flex">
+								<div class="w-100">
+
+								</div>
+			      	</div>
+							<form action="#" class="signin-form">
+			      		<div class="form-group mb-3">
+			      			<label class="label" for="name">Email ID</label>
+			      			<input type="text" class="form-control" placeholder="Enter your Email ID" id="email" required>
+			      		</div>
+		            <div class="form-group">
+		            	<a id="resetPassword" onclick="resetPasswordFunction()" type="submit" class="form-control btn btn-primary submit px-3"> Forget Password </a>
+					<p></p>
+					<div class="form-control btn btn">
+						<a href="../LoginPage/SignIN.html">Back to Login</a>
+					</div>
+		            </div>
+		          </form>
+		        </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+<!--===============================================================================================-->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase.js"></script>
+<script src="js/main.js"></script>
+<script>
+
+var firebaseConfig = {
+    apiKey: "AIzaSyBsVyt5m0vDSwpfk2dseoKtKxjzowYWgaw",
+    authDomain: "vialuggage-org.firebaseapp.com",
+    databaseURL: "https://vialuggage-org-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "vialuggage-org",
+    storageBucket: "vialuggage-org.appspot.com",
+    messagingSenderId: "124797607223",
+    appId: "1:124797607223:web:b061a54a39c3c12dac0eb2"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+	const mailField = document.getElementById('email');
+	const labels = document.getElementsByTagName('label');
+	const resetPassword = document.getElementById('resetPassword');
+	const successModal = document.querySelector('.success');
+	const failureModal = document.querySelector('.failure');
+	const auth = firebase.auth();
+
+//Animations
+mailField.addEventListener('focus', () => {
+labels.item(0).className = "focused-field";
+});
+
+mailField.addEventListener('blur', () => {
+if(!mailField.value)
+	labels.item(0).className = "unfocused-field";
+});
+</script>
+<!--===============================================================================================-->	
+<script src="index.js"></script>
+<script src="../firebase/index.js"></script>
+	</body>
+</html>
+

@@ -1,0 +1,495 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <head>
+        <!--=============== basic  ===============-->
+        <meta charset="UTF-8">
+        <title>viaLuggage - Hotel Booking</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="robots" content="index, follow"/>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <!--=============== css  ===============-->
+        <link type="text/css" rel="stylesheet" href="css/reset.css">
+        <link type="text/css" rel="stylesheet" href="css/plugins.css">
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <link type="text/css" rel="stylesheet" href="css/color.css">
+        <!--=============== favicons ===============-->
+        <link rel="shortcut icon" href="images/favicon.ico">
+    </head>
+    <body onload="checkname()">
+        <!--loader-->
+        <div class="loader-wrap">
+            <div class="pin">
+                <div class="pulse"></div>
+            </div>
+        </div>
+        <!--loader end-->
+        <!-- Main  -->
+        <div id="main">
+            <!-- header-->
+            <header class="main-header">
+                <!-- header-top-->
+                <div class="header-top fl-wrap">
+                    <div class="container">
+                        <div class="logo-holder">
+                            <a href="../Landing.html"><img src="images/Keep Storing and exploring.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- header-top end-->
+                <!-- header-inner-->
+                <div class="header-inner fl-wrap">
+                    <div class="container">
+                        <div class="header-user-menu">
+                            <div class="header-user-name">
+                                <span><img src="../assets/img/user.png" alt=""></span>
+                                <div>
+                                    <a id="user_name" style="color: white;">Profile</a>
+                                    <a id="user_name2" style="color: white;">Name</a>
+                                </div>
+                            </div>
+                            <ul>
+                                <li><a href="../ProfileSection/profile.html"> Edit profile</a></li>
+                                <li><a href="dashboard-bookings.html">  Bookings  </a></li>
+                                <li><a onclick="logout()">Log Out</a></li>
+                            </ul>
+                        </div>
+                    </div>  
+                </div>                        
+
+                <!-- header-inner end-->
+                <!-- header-search -->
+                <div class="header-search vis-search">
+                    <div class="container">
+                        <div class="row">
+                            <!-- header-search-input-item -->
+                            <div class="col-sm-4">
+                                <div class="header-search-input-item fl-wrap">
+                                    <label>Destination or Hotel Name</label>
+                                    <span class="header-search-input-item-icon"><i class="fal fa-map-marker-alt"></i></span>
+                                    <input type="text" placeholder="Location" id="autocompleteid" value=""/>
+                                    <a href="#"><i class="fal fa-dot-circle"></i></a>
+                                </div>
+                            </div>
+                            <!-- header-search-input-item end -->
+                            <!-- header-search-input-item -->
+                            <div class="col-sm-3">
+                                <div class="header-search-input-item fl-wrap date-parent">
+                                    <label>Date In-Out </label>
+                                    <span class="header-search-input-item-icon"><i class="fal fa-calendar-check"></i></span>
+                                    <input type="text" placeholder="When" name="header-search"   value=""/>
+                                </div>
+                            </div>
+                            <!-- header-search-input-item end -->
+                            <!-- header-search-input-item -->
+                            <div class="col-sm-3">
+                                <div class="header-search-input-item fl-wrap">
+                                    <div class="quantity-item">
+                                        <label>Rooms</label>
+                                        <div class="quantity">
+                                            <input type="number" min="1" max="3" step="1" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="quantity-item">
+                                        <label>Adults</label>
+                                        <div class="quantity">
+                                            <input type="number" min="1" max="3" step="1" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="quantity-item">
+                                        <label>Children</label>
+                                        <div class="quantity">
+                                            <input type="number" min="0" max="3" step="1" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- header-search-input-item end -->
+                            <!-- header-search-input-item -->
+                            <div class="col-sm-2">
+                                <div class="header-search-input-item fl-wrap">
+                                    <button class="header-search-button" onclick="window.location.href='listing.html'">Search <i class="far fa-search"></i></button>
+                                </div>
+                            </div>
+                            <!-- header-search-input-item end -->
+                        </div>
+                    </div>
+                    <div class="close-header-search"><i class="fal fa-angle-double-up"></i></div>
+                </div>
+                <!-- header-search  end -->
+            </header>
+            <!--  header end -->
+            <!--  wrapper  -->
+            <div id="wrapper">
+                <!-- content-->
+                <div class="content">
+                    <!-- Map -->
+
+                        <div class="map-container column-map right-pos-map fix-map hid-mob-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d112073.92889796644!2d77.1674385!3d28.6204614!3m2!1i1024!2i768!4f13.1!2m1!1scloakroom%20in%20delhi!5e0!3m2!1sen!2sin!4v1617951114254!5m2!1sen!2sin" width="1300" height="770" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+
+                    <!-- Map end -->
+                    <!--col-list-wrap -->
+                    <div class="col-list-wrap left-list">
+                        <div class="mobile-list-controls fl-wrap">
+                            <div class="container">
+                                <div class="mlc show-hidden-column-map schm"><i class="fal fa-map-marked-alt"></i> Show Map</div>
+                                <div class="mlc show-list-wrap-search"><i class="fal fa-filter"></i> Filter</div>
+                            </div>
+                        </div>
+                        <!--list-wrap-search   -->
+                        <div class="list-wrap-search fl-wrap lws_mobile" id="lisfw">
+                            <div class="container">
+                                <div class="row">
+                                    <!-- col-list-search-input-item -->
+                                    <div class="col-md-4">
+                                        <div class="col-list-search-input-item in-loc-dec fl-wrap not-vis-arrow">
+                                            <label>City/Category</label>
+                                            <div class="listsearch-input-item">
+                                                <select data-placeholder="City" class="chosen-select" >
+                                                    <option>All Cities</option>
+                                                    <option>New Delhi</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- col-list-search-input-item end -->
+                                    <!-- col-list-search-input-item -->
+                                    <div class="col-md-4">
+                                        <div class="col-list-search-input-item in-loc-dec date-container  fl-wrap">
+                                            <label>Date In-Out </label>
+                                            <span class="header-search-input-item-icon"><i class="fal fa-calendar-check"></i></span>
+                                            <input type="text"   placeholder="When" name="dates"   value=""/>
+                                        </div>
+                                    </div>
+                                    <!-- col-list-search-input-item end -->
+                                </div>
+                                <div class="search-opt-wrap fl-wrap">
+                                    <div class="search-opt-wrap-container">
+                                        <!-- col-list-search-input-item -->
+                                        <div class="search-input-item midd-input">
+                                            <div class="col-list-search-input-item fl-wrap">
+                                                <div class="quantity-item">
+                                                    <label>Trollys</label>
+                                                    <div class="quantity">
+                                                        <input type="number" min="1" max="10" step="1" value="1">
+                                                    </div>
+                                                </div>
+                                                <div class="quantity-item">
+                                                    <label>HandBags</label>
+                                                    <div class="quantity">
+                                                        <input type="number" min="1" max="10" step="1" value="1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- col-list-search-input-item end -->
+                                        <!-- col-list-search-input-item -->
+                                        <div class="search-input-item">
+                                            <div class="range-slider-title">Price range</div>
+                                            <div class="range-slider-wrap fl-wrap">
+                                                <input class="range-slider" data-from="100" data-to="500" data-step="10" data-min="100" data-max="500" data-prefix="₹">
+                                            </div>
+                                        </div>
+                                        <!-- col-list-search-input-item end -->
+                                        <!-- col-list-search-input-item -->
+                                        <div class="search-input-item small-input ">
+                                            <div class="col-list-search-input-item fl-wrap">
+                                                <button class="header-search-button" onclick="window.location.href='listing.html'">Search <i class="far fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                        <!-- col-list-search-input-item end -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--list-wrap-search end -->
+                        <!-- list-main-wrap-->
+                        <div class="list-main-wrap fl-wrap card-listing">
+                            <a class="custom-scroll-link back-to-filters" href="#lisfw"><i class="fas fa-angle-up"></i><span>Back to Filters</span></a>
+                            <div class="container">
+                                <!-- list-main-wrap-title-->
+                                <div class="list-main-wrap-title fl-wrap">
+                                    <h2>Results For : <span>Delhi </span></h2>
+                                </div>
+                                <!-- list-main-wrap-title end-->
+                                <!-- list-main-wrap-opt-->
+                                <div class="list-main-wrap-opt fl-wrap">
+                                    <!-- price-opt-->
+                                    <div class="price-opt">
+                                        <span class="price-opt-title">Sort results by:</span>
+                                        <div class="listsearch-input-item">
+                                            <select data-placeholder="Popularity" class="chosen-select no-search-select" >
+                                                <option>Popularity</option>
+                                                <option>Average rating</option>
+                                                <option>Price: low to high</option>
+                                                <option>Price: high to low</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- price-opt end-->
+                                    <!-- price-opt-->
+                                    <div class="grid-opt">
+                                        <ul>
+                                            <li><span class="two-col-grid act-grid-opt"><i class="fas fa-th-large"></i></span></li>
+                                            <li><span class="one-col-grid"><i class="fas fa-bars"></i></span></li>
+                                        </ul>
+                                    </div>
+                                    <!-- price-opt end-->
+                                </div>
+                                <!-- list-main-wrap-opt end-->
+                                <!-- listing-item-container -->
+                                <div class="listing-item-container init-grid-items fl-wrap">
+                                    <!-- listing-item  -->
+                                    <div class="listing-item">
+                                        <article class="geodir-category-listing fl-wrap">
+                                            <div class="geodir-category-img">
+                                                <a href="FormRoom/listing.html"><img src="images/gal/8.jpg" alt=""></a>
+                                                <div class="sale-window">Sale 20%</div>
+                                                <div class="geodir-category-opt">
+                                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
+                                                    <div class="rate-class-name">
+                                                        <div class="score"><strong>Very Good</strong>12 Reviews </div>
+                                                        <span>5.0</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="geodir-category-content fl-wrap title-sin_item">
+                                                <div class="geodir-category-content-title fl-wrap">
+                                                    <div class="geodir-category-content-title-item">
+                                                        <h3 class="title-sin_map"><a href="FormRoom/listing.html">Singh's CloakRoom</a></h3>
+                                                        <div class="geodir-category-location fl-wrap"><a href="#" class="map-item"><i class="fas fa-map-marker-alt"></i>DDA SFS Flats, Pkt-2, Pocket 1, Dwarka Sector 9, Palam</a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="geodir-category-footer fl-wrap">
+                                                    <div class="geodir-category-price">Price : <span>₹100/bag per Hour</span></div>
+                                                    <div class="geodir-opt-list">
+                                                        <a href="https://maps.app.goo.gl/UzQCW1D12kLhWWjH7" target="_blank" class="single-map-item"><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <!-- listing-item end -->
+                                    <!-- listing-item  -->
+                                    <div class="listing-item">
+                                        <article class="geodir-category-listing fl-wrap">
+                                            <div class="geodir-category-img">
+                                                <a href="FormRoom/listing.html"><img src="images/gal/4.jpg" alt=""></a>
+                                                <div class="sale-window big-sale">Sale 30%</div>
+                                                <div class="geodir-category-opt">
+                                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="4"></div>
+                                                    <div class="rate-class-name">
+                                                        <div class="score"><strong>Good</strong>12 Reviews </div>
+                                                        <span>4.2</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="geodir-category-content fl-wrap title-sin_item">
+                                                <div class="geodir-category-content-title fl-wrap">
+                                                    <div class="geodir-category-content-title-item">
+                                                        <h3 class="title-sin_map"><a href="FormRoom/listing.html">Bagdolo- CloakRoom</a></h3>
+                                                        <div class="geodir-category-location fl-wrap"><a href="#" class="map-item"><i class="fas fa-map-marker-alt"></i>Near New Delhi Railway Station</a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="geodir-category-footer fl-wrap">
+                                                    <div class="geodir-opt-link">
+                                                        <div class="geodir-category-price">Price : <span>₹100/bag per Hour</span></div>
+                                                    </div>
+                                                    <div class="geodir-opt-list">
+                                                        <a href="https://g.page/bagdolo?share" target="_blank" class="single-map-item"><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <!-- listing-item end -->
+                                    <!-- listing-item  -->
+                                    <div class="listing-item">
+                                        <article class="geodir-category-listing fl-wrap">
+                                            <div class="geodir-category-img">
+                                                <a href="FormRoom/listing.html"><img src="images/gal/6.jpg" alt=""></a>
+                                                <div class="geodir-category-opt">
+                                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
+                                                    <div class="rate-class-name">
+                                                        <div class="score"><strong>Good</strong>6 Reviews </div>
+                                                        <span>4.7</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="geodir-category-content fl-wrap title-sin_item">
+                                                <div class="geodir-category-content-title fl-wrap">
+                                                    <div class="geodir-category-content-title-item">
+                                                        <h3 class="title-sin_map"><a href="FormRoom/listing.html">Central CloakRooms</a></h3>
+                                                        <div class="geodir-category-location fl-wrap"><a href="#" class="map-item"><i class="fas fa-map-marker-alt"></i>Pandav Nagar, Delhi, 110092</a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="geodir-category-footer fl-wrap">
+                                                    <div class="geodir-opt-link">
+                                                        <div class="geodir-category-price">Price : <span>₹100/bag per Hour</span></div>
+                                                    </div>
+                                                    <div class="geodir-opt-list">
+                                                        <a href="https://goo.gl/maps/Aagy8pqqAkQHbbLD9" target="_blank" class="single-map-item" data-newlatitude="40.88496706" data-newlongitude="-73.88191222"><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span></a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <!-- listing-item end -->
+                                    <!-- listing-item  -->
+                                    <div class="listing-item">
+                                        <article class="geodir-category-listing fl-wrap">
+                                            <div class="geodir-category-img">
+                                                <a href="FormRoom/listing.html"><img src="images/gal/2.jpg" alt=""></a>
+                                                <div class="sale-window">Sale 20%</div>
+                                                <div class="geodir-category-opt">
+                                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="3"></div>
+                                                    <div class="rate-class-name">
+                                                        <div class="score"><strong>Pleasant</strong>10 Reviews </div>
+                                                        <span>3.8</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="geodir-category-content fl-wrap title-sin_item">
+                                                <div class="geodir-category-content-title fl-wrap">
+                                                    <div class="geodir-category-content-title-item">
+                                                        <h3 class="title-sin_map"><a href="FormRoom/listing.html">Holiday CloakRooms</a></h3>
+                                                        <div class="geodir-category-location fl-wrap"><a href="#" class="map-item"><i class="fas fa-map-marker-alt"></i>Near HazratNizamuddin Railway Station</a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="geodir-category-footer fl-wrap">
+                                                    <div class="geodir-opt-link">
+                                                        <div class="geodir-category-price">Price : <span>₹100/bag per Hour</span></div>
+                                                    </div>
+                                                    <div class="geodir-opt-list">
+                                                        <a href="https://goo.gl/maps/iciGSn1Mk4LGh8bs7" target="_blank" class="single-map-item" ><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <!-- listing-item end -->
+                                </div>
+                                <!-- listing-item-container end-->
+                                <!-- pagination-->
+                                <a href="../PageNotFound/index.html" class="btn color-bg">More Rooms Coming Soon<i class="fas fa-caret-right"></i></a>
+                               
+                               <!-- <div class="pagination">
+                                    <a href="#" class="prevposts-link"><i class="fa fa-caret-left"></i></a>
+                                    <a href="#" >1</a>
+                                    <a href="#" class="current-page">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#" class="nextposts-link"><i class="fa fa-caret-right"></i></a>
+                                </div>
+                                -->
+                                <!-- pagination end-->
+                            </div>
+                        </div>
+                        <!-- list-main-wrap end-->
+                    </div>
+                    <!--col-list-wrap end -->
+                    <div class="limit-box fl-wrap"></div>
+                </div>
+                <!-- content end-->
+            </div>
+            <!--wrapper end -->
+            <!--footer -->
+            <footer class="main-footer">
+                <!--footer-inner-->
+                <div class="footer-inner">
+                    <div class="container">
+                        <!--footer-fw-widget end-->
+                        <div class="row">
+                            <!--footer-widget -->
+                            <div class="col-md-4">
+                                <div class="footer-widget fl-wrap">
+                                    <div class="footer-contacts-widget fl-wrap">
+                                        <div class="footer-social">
+                                            <span>Find us : </span>
+                                            <ul>
+                                                <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--footer-widget end-->
+                        </div>
+                        <div class="clearfix"></div>
+                        <!--footer-widget -->
+                        <div class="footer-widget">
+                            <div class="row">
+                                <div class="col-md-4"><a class="contact-btn color-bg" href="contacts.html">Get In Touch<i class="fal fa-envelope"></i></a></div>
+                                <div class="col-md-8">
+                                    <div class="customer-support-widget fl-wrap">
+                                        <h4>Customer support : </h4>
+                                        <a href="tel:+919871322384" class="cs-mumber">(+91)9871322384</a>
+                                        <a href="tel:+919871322384" class="cs-mumber-button color2-bg">Call Now <i class="far fa-phone-volume"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--footer-widget end -->
+                    </div>
+                </div>
+                <!--footer-inner end -->
+                <div class="footer-bg">
+                </div>
+                <!--sub-footer-->
+                <div class="sub-footer">
+                    <div class="container">
+                        <div class="copyright"> &#169; viaLuggage 2021 .  All rights reserved.</div>
+                    </div>
+                </div>
+                <!--sub-footer end -->
+            </footer>
+        <!-- Main end -->
+        <!--=============== scripts  ===============-->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/plugins.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwJSRi0zFjDemECmFl9JtRj1FY7TiTRRo&libraries=places&callback=initAutocomplete"></script>
+        <script type="text/javascript" src="js/mapplugins.js"></script>
+        <script type="text/javascript" src="js/maps.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase.js"></script>
+        <script src="../firebase/index.js"></script>
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyBsVyt5m0vDSwpfk2dseoKtKxjzowYWgaw",
+                authDomain: "vialuggage-org.firebaseapp.com",
+                databaseURL: "https://vialuggage-org-default-rtdb.asia-southeast1.firebasedatabase.app",
+                projectId: "vialuggage-org",
+                storageBucket: "vialuggage-org.appspot.com",
+                messagingSenderId: "124797607223",
+                appId: "1:124797607223:web:b061a54a39c3c12dac0eb2"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+             const auth = firebase.auth();
+                function logout(){
+                auth.signOut().then(()=>{
+                    location.replace("../Home.html");
+                })
+                }
+                function search(){
+                    if(document.getElementById("autocompleteid2").nodeValue == null){
+                        window.alert("Please Fill out City First.")
+                    }
+                    if(document.getElementById("time").nodeValue == null){
+                        window.alert("Choose the Date Before Continuing")
+                    }
+                    else{
+                        window.location.href='listing.html'
+                    }
+                }
+        </script>
+    </body>
+</html>

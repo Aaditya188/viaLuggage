@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<link href="../../assets/img/favicon.png" rel="icon">
+	<link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Your Bookings - vialuggage</title>
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Cabin:400,700" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+</head>
+
+<body onload="checkbook()">
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="booking-form">
+						<div class="booking-bg"></div>
+						<form>
+							<div class="form-header">
+								<h2>Previous Booking</h2>
+								<h5> (only 1 recent booking will be saved)</h5>
+							</div>
+							<div class="form-group">
+								<span class="form-label">Booking Id : </span>
+								<input id="bkid" class="form-control" type="text" placeholder="Booking Id" disabled>
+							</div>
+							<div class="form-group">
+								<span class="form-label">CloakRoom Name</span>
+								<input id="clkname" class="form-control" type="text" placeholder="CloakRoom Name" disabled>
+							</div>
+							<div class="form-group">
+								<span class="form-label">CloakRoom City</span>
+								<input id="cityname" class="form-control" type="text" placeholder="CloakRoom City" disabled>
+							</div>
+							<div class="form-group">
+								<span class="form-label">Email</span>
+								<input id="mid" class="form-control" type="email" placeholder="Email" disabled>
+							</div>
+							<div class="form-btn">
+								<a href="../../Landing.html" class="submit-btn" type="submit">Go to Home</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="assets/js/main.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+<script>
+	// Your web app's Firebase configuration
+	var firebaseConfig = {
+    apiKey: "AIzaSyBsVyt5m0vDSwpfk2dseoKtKxjzowYWgaw",
+    authDomain: "vialuggage-org.firebaseapp.com",
+    databaseURL: "https://vialuggage-org-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "vialuggage-org",
+    storageBucket: "vialuggage-org.appspot.com",
+    messagingSenderId: "124797607223",
+    appId: "1:124797607223:web:b061a54a39c3c12dac0eb2"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+	//---------------------------Print Booking Details-------------------------------------//
+
+function checkbook(){
+  firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+  
+        var user = firebase.auth().currentUser;
+        if(user != null){
+    
+          var mail = user.email;
+          name1 = mail.substring(0, mail.lastIndexOf("@"));
+          firebase.database().ref('profile/'+name1).on('value',function(snapshot){
+            
+            document.getElementById('bkid').value = snapshot.val().BookID;
+            document.getElementById('clkname').value = snapshot.val().CloakRoom;
+            document.getElementById('mid').value = snapshot.val().Email;
+			document.getElementById('cityname').value = snapshot.val().City;
+          
+          });
+        }
+    
+      }
+  });
+  }
+</script>
+</html>

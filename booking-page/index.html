@@ -1,0 +1,486 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <head>
+        <!--=============== basic  ===============-->
+        <meta charset="UTF-8">
+        <title>viaLuggage - Hotel Booking</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="robots" content="index, follow"/>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <!--=============== css  ===============-->
+        <link type="text/css" rel="stylesheet" href="css/reset.css">
+        <link type="text/css" rel="stylesheet" href="css/plugins.css">
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <link type="text/css" rel="stylesheet" href="css/color.css">
+        <!--=============== favicons ===============-->
+        <link rel="shortcut icon" href="images/favicon.ico">
+    </head>
+    <body onload="checkname()">
+        <!--loader-->
+        <div class="loader-wrap">
+            <div class="pin">
+                <div class="pulse"></div>
+            </div>
+        </div>
+        <!--loader end-->
+        <!-- Main  -->
+        <div id="main">
+            <!-- header-->
+            <header class="main-header">
+                <!-- header-top-->
+                <div class="header-top fl-wrap">
+                    <div class="container">
+                        <div class="logo-holder">
+                            <a href="../Landing.html"><img src="images/Keep Storing and exploring.png" ></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- header-top end-->
+                <!-- header-inner-->
+                <div class="header-inner fl-wrap">
+                    <div class="container">
+                    <div class="right">
+                        <div class="header-user-menu">
+                            <div class="header-user-name">
+                                <span id="Clicks"><img src="../assets/img/user.png" ></span>
+                                <div> 
+                                  <a id="user_name" style="color: white;">Profile</a>
+                                  <a id="user_name2" style="color: white;">Name</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <!-- nav-button-wrap-->
+                    </div>
+                </div>
+                <!-- header-inner end-->
+                <!-- header-search -->
+                <div class="header-search vis-search">
+                    <div class="container">
+                        <div class="row">
+                            <!-- header-search-input-item -->
+                            <div class="col-sm-4">
+                                <div class="header-search-input-item fl-wrap location autocomplete-container">
+                                    <label>Destination or Hotel Name</label>
+                                    <span class="header-search-input-item-icon"><i class="fal fa-map-marker-alt"></i></span>
+                                    <input type="text" placeholder="Location" class="autocomplete-input" id="autocompleteid" value="" aria-required="true"/>
+                                    <a href="index.html"><i class="fal fa-dot-circle"></i></a>
+                                </div>
+                            </div>
+                            <!-- header-search-input-item end -->
+                            <!-- header-search-input-item -->
+                            <div class="col-sm-3">
+                                <div class="header-search-input-item fl-wrap date-parent">
+                                    <label>Date In-Out </label>
+                                    <span class="header-search-input-item-icon"><i class="fal fa-calendar-check"></i></span>
+                                    <input type="text" placeholder="When" name="header-search"   value="" required/>
+                                </div>
+                            </div>
+                            <!-- header-search-input-item end -->
+                            <!-- header-search-input-item -->
+                            <div class="col-sm-3">
+                                <div class="header-search-input-item fl-wrap">
+                                    <div class="quantity-item">
+                                        <label>Luggage Qty.</label>
+                                        <div class="quantity">
+                                            <input type="number" min="1" max="3" step="1" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="quantity-item">
+                                        <label>Trollys</label>
+                                        <div class="quantity">
+                                            <input type="number" min="1" max="10" step="1" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="quantity-item">
+                                        <label>Air-Bags</label>
+                                        <div class="quantity">
+                                            <input type="number" min="0" max="10" step="1" value="0">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- header-search-input-item end -->
+                            <!-- header-search-input-item -->
+                            <div class="col-sm-2">
+                                <div class="header-search-input-item fl-wrap">
+                                    <button class="header-search-button" onclick="window.location.href='listing.html'" >Search <i class="far fa-search"></i></button>
+                                </div>
+                            </div>
+                            <!-- header-search-input-item end -->
+                        </div>
+                    </div>
+                    <div class="close-header-search"><i class="fal fa-angle-double-up"></i></div>
+                </div>
+                <!-- header-search  end -->
+            </header>
+            <!--  header end -->
+            <!--  wrapper  -->
+            <div id="wrapper">
+                <!-- content-->
+                <div class="content">
+                    <!--section -->
+                    <section class="hero-section" data-scrollax-parent="true" id="sec1">
+                        <div class="hero-parallax">
+                            <div class="bg"  data-bg="images/bg/22.jpg" data-scrollax="properties: { translateY: '200px' }"></div>
+                            <div class="overlay op7"></div>
+                        </div>
+                        <div class="hero-section-wrap fl-wrap">
+                            <div class="container">
+                                <div class="home-intro">
+                                    <div class="section-title-separator"><span></span></div>
+                                    <h2>CloakRoom Booking System</h2>
+                                    <span class="section-separator"></span>
+                                    <h3>Let's start exploring the world together with viaLuggage</h3>
+                                </div>
+                                <div class="main-search-input-wrap">
+                                    <div class="main-search-input fl-wrap">
+                                        <div class="main-search-input-item location">
+                                            <span class="inpt_dec"><i class="fal fa-map-marker"></i></span>
+                                            <input type="text" placeholder="Hotel , City..." id="autocompleteid2"  value="" required/>
+                                            <a href="#"><i class="fal fa-dot-circle"></i></a>
+                                        </div>
+                                        <div class="main-search-input-item main-date-parent main-search-input-item_small">
+                                            <span class="inpt_dec"><i class="fal fa-calendar-check"></i></span> <input type="text" placeholder="When" name="main-input-search" id="time"  value=""/>
+                                        </div>
+                                        <div class="main-search-input-item">
+                                            <div class="qty-dropdown fl-wrap">
+                                                <div class="qty-dropdown-header fl-wrap"><i class="fal fa-users"></i> Luggage Qty.</div>
+                                                <div class="qty-dropdown-content fl-wrap">
+                                                    <div class="quantity-item">
+                                                        <label><i></i> Trollys</label>
+                                                        <div class="quantity">
+                                                            <input type="number" min="1" max="10" step="1" value="1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="quantity-item">
+                                                        <label><i></i> Hand Bags</label>
+                                                        <div class="quantity">
+                                                            <input type="number" min="0" max="10" step="1" value="0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="main-search-button color2-bg" onclick="window.location.href='listing.html'">Search <i class="fal fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-sec-link">
+                            <div class="container"><a href="#sec2" class="custom-scroll-link color-bg"><i class="fal fa-angle-double-down"></i></a></div>
+                        </div>
+                    </section>
+                    <!-- section end -->
+                    <!--section -->
+                    <section id="sec2">
+                        <div class="container">
+                                <div class="section-title">
+                                    <div class="section-title-separator"><span></span></div>
+                                    <h2>Popular Cities</h2>
+                                    <span class="section-separator"></span>
+                                    <p>Explore some of the best tips from around the city from our partners.</p>
+                                </div>
+                            </div>
+                            <!-- portfolio start -->
+                            <div class="gallery-items fl-wrap mr-bot spad home-grid">
+                                <div class="gallery-item" style="margin-left: 512px;">
+                                    <div class="grid-item-holder">
+                                        <div class="listing-item-grid">
+                                            <div class="listing-counter"><span>4</span> CloakRooms</div>
+                                            <img  src="images/city/5.jpg"   alt="">
+                                            <div class="listing-item-cat">
+                                                <h3><a href="listing.html">Delhi</a></h3>
+                                                <div class="weather-grid"   data-grcity="Dubai"></div>
+                                                <div class="clearfix"></div>
+                                                <p>Premium Luggage Storage Facility </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- gallery-item end-->
+                            </div>
+                            <!-- portfolio end -->
+                            <a href="../PageNotFound/index.html" class="btn color-bg">More Cities Coming Soon<i class="fas fa-caret-right"></i></a>
+                    <!-- section end -->
+                    <!-- section-->
+                    <section class="grey-blue-bg">
+                        <!-- container-->
+                        <div class="container">
+                            <div class="section-title">
+                                <div class="section-title-separator"><span></span></div>
+                                <h2>CloakRooms in Delhi</h2>
+                                <span class="section-separator"></span>
+                                <p>..Keep Storing and Exploring..</p>
+                            </div>
+                        </div>
+                        <!-- container end-->
+                        <!-- carousel -->
+                        <div class="list-carousel fl-wrap card-listing ">
+                            <!--listing-carousel-->
+                            <div class="listing-carousel  fl-wrap ">
+                                <!--slick-slide-item-->
+                                <div class="slick-slide-item">
+                                    <!-- listing-item  -->
+                                    <div class="listing-item">
+                                        <article class="geodir-category-listing fl-wrap">
+                                            <div class="geodir-category-img">
+                                                <a href="FormRoom/listing.html"><img src="images/gal/8.jpg" alt=""></a>
+                                                <div class="sale-window">Sale 20%</div>
+                                                <div class="geodir-category-opt">
+                                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
+                                                    <div class="rate-class-name">
+                                                        <div class="score"><strong>Very Good</strong>12 Reviews </div>
+                                                        <span>5.0</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="geodir-category-content fl-wrap title-sin_item">
+                                                <div class="geodir-category-content-title fl-wrap">
+                                                    <div class="geodir-category-content-title-item">
+                                                        <h3 class="title-sin_map"><a href="FormRoom/listing.html">Singh's CloakRoom</a></h3>
+                                                        <div class="geodir-category-location fl-wrap"><a href="#" class="map-item"><i class="fas fa-map-marker-alt"></i>DDA SFS Flats, Pkt-2, Pocket 1, Dwarka Sector 9, Palam</a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="geodir-category-footer fl-wrap">
+                                                    <div class="geodir-category-price"><span>On the Map</span></div>
+                                                    <div class="geodir-opt-list">
+                                                        <a href="https://maps.app.goo.gl/UzQCW1D12kLhWWjH7" target="_blank" class="single-map-item"><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <!-- listing-item end -->
+                                </div>
+                                <!--slick-slide-item end-->
+                                <!--slick-slide-item-->
+                                <div class="slick-slide-item">
+                                    <!-- listing-item  -->
+                                    <div class="listing-item">
+                                        <article class="geodir-category-listing fl-wrap">
+                                            <div class="geodir-category-img">
+                                                <a href="FormRoom/listing.html"><img src="images/gal/4.jpg" alt=""></a>
+                                                <div class="sale-window big-sale">Sale 30%</div>
+                                                <div class="geodir-category-opt">
+                                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="4"></div>
+                                                    <div class="rate-class-name">
+                                                        <div class="score"><strong>Good</strong>12 Reviews </div>
+                                                        <span>4.2</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="geodir-category-content fl-wrap title-sin_item">
+                                                <div class="geodir-category-content-title fl-wrap">
+                                                    <div class="geodir-category-content-title-item">
+                                                        <h3 class="title-sin_map"><a href="FormRoom/listing.html">Bagdolo- CloakRoom</a></h3>
+                                                        <div class="geodir-category-location fl-wrap"><a href="#" class="map-item"><i class="fas fa-map-marker-alt"></i>Near New Delhi Railway Station</a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="geodir-category-footer fl-wrap">
+                                                    <div class="geodir-opt-link">
+                                                        <div class="geodir-category-price"><span>On the Map</span></div>
+                                                    </div>
+                                                    <div class="geodir-opt-list">
+                                                        <a href="https://g.page/bagdolo?share" target="_blank" class="single-map-item" data-newlatitude="40.76221766" data-newlongitude="-73.96511769"><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <!-- listing-item end -->
+                                </div>
+                                <!--slick-slide-item end-->
+                                <!--slick-slide-item-->
+                                <div class="slick-slide-item">
+                                    <!-- listing-item  -->
+                                    <div class="listing-item">
+                                        <article class="geodir-category-listing fl-wrap">
+                                            <div class="geodir-category-img">
+                                                <a href="FormRoom/listing.html"><img src="images/gal/6.jpg" alt=""></a>
+                                                <div class="geodir-category-opt">
+                                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
+                                                    <div class="rate-class-name">
+                                                        <div class="score"><strong>Good</strong>6 Reviews </div>
+                                                        <span>4.7</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="geodir-category-content fl-wrap title-sin_item">
+                                                <div class="geodir-category-content-title fl-wrap">
+                                                    <div class="geodir-category-content-title-item">
+                                                        <h3 class="title-sin_map"><a href="FormRoom/listing.html">Central CloakRooms</a></h3>
+                                                        <div class="geodir-category-location fl-wrap"><a href="#" class="map-item"><i class="fas fa-map-marker-alt"></i>Pandav Nagar, Delhi, 110092</a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="geodir-category-footer fl-wrap">
+                                                    <div class="geodir-opt-link">
+                                                        <div class="geodir-category-price"><span>On the Map</span></div>
+                                                    </div>
+                                                    <div class="geodir-opt-list">
+                                                        <a href="https://goo.gl/maps/Aagy8pqqAkQHbbLD9" target="_blank" class="single-map-item" data-newlatitude="40.88496706" data-newlongitude="-73.88191222"><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span></a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <!-- listing-item end -->
+                                </div>
+                                <!--slick-slide-item end-->
+                                <!--slick-slide-item-->
+                                <div class="slick-slide-item">
+                                    <!-- listing-item  -->
+                                    <div class="listing-item">
+                                        <article class="geodir-category-listing fl-wrap">
+                                            <div class="geodir-category-img">
+                                                <a href="FormRoom/listing.html"><img src="images/gal/2.jpg" alt=""></a>
+                                                <div class="sale-window">Sale 20%</div>
+                                                <div class="geodir-category-opt">
+                                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="3"></div>
+                                                    <div class="rate-class-name">
+                                                        <div class="score"><strong>Pleasant</strong>10 Reviews </div>
+                                                        <span>3.8</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="geodir-category-content fl-wrap title-sin_item">
+                                                <div class="geodir-category-content-title fl-wrap">
+                                                    <div class="geodir-category-content-title-item">
+                                                        <h3 class="title-sin_map"><a href="FormRoom/listing.html">Holiday CloakRooms</a></h3>
+                                                        <div class="geodir-category-location fl-wrap"><a href="#" class="map-item"><i class="fas fa-map-marker-alt"></i>Near HazratNizamuddin Railway Station</a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="geodir-category-footer fl-wrap">
+                                                    <div class="geodir-opt-link">
+                                                        <div class="geodir-category-price"><span>On the Map</span></div>
+                                                    </div>
+                                                    <div class="geodir-opt-list">
+                                                        <a href="https://goo.gl/maps/iciGSn1Mk4LGh8bs7" target="_blank" class="single-map-item" ><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <!-- listing-item end -->
+                                </div>
+                                <!--slick-slide-item end-->
+                            </div>
+                            <!--listing-carousel end-->
+                            <div class="swiper-button-prev sw-btn"><i class="fa fa-long-arrow-left"></i></div>
+                            <div class="swiper-button-next sw-btn"><i class="fa fa-long-arrow-right"></i></div>
+                        </div>
+                        <!--  carousel end-->
+                    </section>
+                    <!-- section end -->
+                    <!--section -->
+                    <section class="parallax-section" data-scrollax-parent="true">
+                        <div class="bg"  data-bg="images/bg/14.jpg" data-scrollax="properties: { translateY: '100px' }"></div>
+                        <div class="overlay"></div>
+                        <!--container-->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <!-- column text-->
+                                    <div class="colomn-text fl-wrap">
+                                        <div class="colomn-text-title">
+                                            <h3>The owner of the CloakRoom or business ?</h3>
+                                            <p>If you want to join our vialuggage Team to make Indian Tourism Industry Better..Join With Us</p>
+                                            <a href="/JoinUs/index.html" target="_blank" class = "btn  color-bg float-btn">Join US<i class="fal fa-plus"></i></a>
+                                        </div>
+                                    </div>
+                                    <!--column text   end-->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- section end -->
+            <!--footer -->
+            <footer class="main-footer">
+                <!--footer-inner-->
+                <div class="footer-inner">
+                    <div class="container">
+                        <!--footer-fw-widget end-->
+                        <div class="row">
+                            <!--footer-widget -->
+                            <div class="col-md-4">
+                                <div class="footer-widget fl-wrap">
+                                    <div class="footer-contacts-widget fl-wrap">
+                                        <div class="footer-social">
+                                            <span>Find us : </span>
+                                            <ul>
+                                                <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--footer-widget end-->
+                        </div>
+                        <div class="clearfix"></div>
+                        <!--footer-widget -->
+                        <div class="footer-widget">
+                            <div class="row">
+                                <div class="col-md-4"><a class="contact-btn color-bg" href="contacts.html">Get In Touch<i class="fal fa-envelope"></i></a></div>
+                                <div class="col-md-8">
+                                    <div class="customer-support-widget fl-wrap">
+                                        <h4>Customer support : </h4>
+                                        <a href="tel:+919871322384" class="cs-mumber">(+91)9871322384</a>
+                                        <a href="tel:+919871322384" class="cs-mumber-button color2-bg">Call Now <i class="far fa-phone-volume"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--footer-widget end -->
+                    </div>
+                </div>
+                <!--footer-inner end -->
+                <div class="footer-bg">
+                </div>
+                <!--sub-footer-->
+                <div class="sub-footer">
+                    <div class="container">
+                        <div class="copyright"> &#169; viaLuggage 2021 .  All rights reserved.</div>
+                    </div>
+                </div>
+                <!--sub-footer end -->
+            </footer>
+        <!-- Main end -->
+        <!--=============== scripts  ===============-->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/plugins.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwJSRi0zFjDemECmFl9JtRj1FY7TiTRRo&libraries=places&callback=initAutocomplete"></script>
+        <script type="text/javascript" src="js/map-single.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase.js"></script>
+        <script src="../firebase/index.js"></script>
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyBsVyt5m0vDSwpfk2dseoKtKxjzowYWgaw",
+                authDomain: "vialuggage-org.firebaseapp.com",
+                databaseURL: "https://vialuggage-org-default-rtdb.asia-southeast1.firebasedatabase.app",
+                projectId: "vialuggage-org",
+                storageBucket: "vialuggage-org.appspot.com",
+                messagingSenderId: "124797607223",
+                appId: "1:124797607223:web:b061a54a39c3c12dac0eb2"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+             const auth = firebase.auth();
+                function logout(){
+                auth.signOut().then(()=>{
+                    location.replace("../Home.html");
+                })
+                }
+                document.getElementById('Clicks').click(function(){
+                     window.location.replace('../ProfileSection/profile.html')
+                 });
+        </script>
+    </body>
+</html>

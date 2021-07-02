@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>CREATE AN ACCOUNT - viaLuggage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <link rel="icon" href="C:\Users\Aaditya Prakash\Desktop\Programs\viaLuggage\images\web_logo.png" sizes="16x16" type="image/png">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h1> <b> viaLuggage </b> </h1>
+					<h3> </h3>
+					<h3> CREATE AN ACCOUNT WITH MOBILE NUMBER </h3>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+						
+			      	<div class="d-flex">
+								<div class="w-100">
+
+								</div>
+			      	</div>
+							<form action="#" class="signin-form">
+			      		<div class="form-group mb-3">
+			      			<label class="label" for="name">Mobile Number (with +91)</label>
+			      			<input type="text"  id="number" class="form-control" placeholder="Mobile">
+							  
+			      		</div>
+						  <div style="text-align: center;">
+							<div
+							    id="recaptcha-container"
+								style="display: inline-block;"
+							></div>
+							
+						</div>
+						<button type="button" onclick="phoneAuth();">Send OTP</button>
+		            <div class="form-group mb-3">
+						
+		            	<label class="label"  for="OTP">OTP</label>
+		              <input type="password" id="verificationCode" class="form-control" placeholder="OTP">
+		            </div>
+					<div>
+					<label class="checkbox-wrap checkbox-primary mb-0">I understand and agree to the terms of use and privacy policy.
+						Please send me occasional ViaLuggage news and updates
+						<input id="check" type="checkbox" unchecked>
+						<span class="checkmark"></span>
+						  </label>
+					  </div>
+		            <div class="form-group">
+		            	<a onclick="checktick()" type="submit" id="enter" class="form-control btn btn-primary submit px-3">Sign Up</a>
+					</div>
+					<div>
+						<a>Already have an account?<a type="text" href="SignIN.html">Sign in!</a></a>
+		            </div>
+		            </div>
+		          </form>
+		        </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script> 
+
+  <script>
+	// Your web app's Firebase configuration
+	var firebaseConfig = {
+    apiKey: "AIzaSyBsVyt5m0vDSwpfk2dseoKtKxjzowYWgaw",
+    authDomain: "vialuggage-org.firebaseapp.com",
+    databaseURL: "https://vialuggage-org-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "vialuggage-org",
+    storageBucket: "vialuggage-org.appspot.com",
+    messagingSenderId: "124797607223",
+    appId: "1:124797607223:web:b061a54a39c3c12dac0eb2"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  </script>
+<script src="index.js"></script>
+<script src="../firebase/index.js"></script>
+<script src="js/NumberAuthentication.js"></script>
+<script>
+	var input = document.getElementById("number");
+    input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+			document.getElementById("enter").click();
+
+        }
+    });
+</script>
+</body>
+</html>
+
