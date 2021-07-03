@@ -57,4 +57,4 @@ A future proof business would be the outcome of the project which would be direc
 <h2 align= "left"><b>Demo Video and Website Link 👇</b></h2>
 
 - Website Link : <a href="https://www.vialuggage.org/" target="_blank">www.vialuggage.org</a>
-- Youtube Demo : <a href="">Soon</a>
+- Youtube Demo : <a href="https://youtu.be/6w6P6KWm41A">Click Here</a>
